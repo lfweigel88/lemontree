@@ -1,4 +1,5 @@
 #!/bin/bash
+. ./config
 year=$(date +%Y)
 echo $year
 month=$(date +%m)
@@ -11,4 +12,4 @@ if [ ! -d $path ]; then
 	mkdir -p $path
 fi
 cd $path
-ffmpeg -y -i rtsp://192.168.43.116/live0 -vframes 1 $name.jpg
+ffmpeg -y -i rtsp://$varip/live0 -vframes 1 $name.jpg
