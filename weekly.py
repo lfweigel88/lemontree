@@ -23,22 +23,19 @@ times = []
 for i in timesinput:
 	times.append(i)
 #start = int(day) - int(startinput)
-start = datetime.datetime.now() - datetime.timedelta(days=startinput)
+#start = datetime.datetime.now() - datetime.timedelta(days=startinput)
 #print(dir(start))
-startda = start.day
-startmo = start.month
 os.system("mkdir /lemontree/tmp")
-if startmo < 10:
-	startmostr = ("0"+str(startmo))
-else:
-	startmostr = str(startmo)
 i = int(startinput)
 while i >= 0:
 	start = datetime.datetime.now() - datetime.timedelta(days=i)
-	if start.month == month:
-		startmostr = str(month)
+	if start.month < 10:
+        	startmostr = ("0"+str(start.month))
+	else:
+        	startmostr = str(start.month)
 	if start.day < 10:
-	        startdastr = ("0"+str(start.day))
+		print(str(start.day) + " was less than 10")
+		startdastr = ("0"+str(start.day))
 	else:
         	startdastr=str(start.day)
 	for t in times:
